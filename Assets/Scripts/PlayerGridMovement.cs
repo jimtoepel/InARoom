@@ -27,6 +27,21 @@ public class PlayerGridMovement : MonoBehaviour {
 	public void Update() {
 		if (!isMoving) {
 			input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+			// Clamp if movement disabled
+			if (!canNorth && input.y > 0) {
+				input.y = 0;
+			}
+			if (!canSouth && input.y < 0) {
+				input.y = 0;
+			}
+			if (!canEast && input.x > 0) {
+				input.x = 0;
+			}
+			if (!canWest && input.x < 0) {
+				input.x = 0;
+			}
+
 			if (!allowDiagonals) {
 				if (Mathf.Abs(input.x) > Mathf.Abs(input.y)) {
 					input.y = 0;
