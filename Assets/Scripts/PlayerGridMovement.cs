@@ -2,6 +2,12 @@
 using System.Collections;
 
 public class PlayerGridMovement : MonoBehaviour {
+
+	public bool canNorth;
+	public bool canSouth;
+	public bool canEast;
+	public bool canWest;
+
 	private float moveSpeed = 3f;
 	private float gridSize = 10f;
 	private enum Orientation {
